@@ -3,13 +3,14 @@ import React, { useState, useEffect } from "react";
 import CreateBook from "./components/CreateBook";
 import BookList from "./components/BookList";
 
-// TO-DO:
-// 1) Connect to backend - Done
-// 2) Add filter
-// 3) Add Search
-
 function App() {
   const [books, setBooks] = useState([]);
+  const headers = [
+    { name: "Title", key: "title" },
+    { name: "Author", key: "author" },
+    { name: "Year Read", key: "yearRead" },
+    { name: "Rating", key: "rating" },
+  ];
 
   useEffect(() => {
     const sendRequest = async () => {
@@ -20,7 +21,7 @@ function App() {
       setBooks(responseData);
     };
     sendRequest();
-  }, [books]);
+  }, [setBooks]);
 
   const handleCreateBook = async ({ title, author, yearRead, rating }) => {
     let newBook = {
@@ -51,11 +52,11 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="app">
       <h1>Harry's Books</h1>
       <CreateBook handleCreateBook={handleCreateBook} />
       <hr />
-      <BookList books={books} />
+      <BookList books={books} headers={headers}/>
     </div>
   );
 }
