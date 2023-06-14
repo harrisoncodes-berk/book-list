@@ -17,7 +17,7 @@ input[type="text"] {
   margin-bottom: 10px;
 }
 
-button {
+.create-button {
   padding: 10px 15px;
   margin-left: 20px;
   background-color: #4caf50;
@@ -27,6 +27,6 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.create-button:hover {
   background-color: #45a049;
 }

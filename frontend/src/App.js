@@ -10,6 +10,7 @@ function App() {
     { name: "Author", key: "author" },
     { name: "Year Read", key: "yearRead" },
     { name: "Rating", key: "rating" },
+    { name: "Delete", key: "delete" },
   ];
 
   useEffect(() => {
@@ -51,12 +52,25 @@ function App() {
     }
   };
 
+  const deleteBook = async (id) => {
+    try {
+      await fetch(process.env.REACT_APP_BACKEND_URL + `/books/${id}`, {
+        method: "DELETE",
+      });
+      setBooks(books.filter((book) => {
+        return book._id !== id;
+      }));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="app">
       <h1>Harry's Books</h1>
       <CreateBook handleCreateBook={handleCreateBook} />
       <hr />
-      <BookList books={books} headers={headers}/>
+      <BookList books={books} headers={headers} deleteBook={deleteBook} />
     </div>
   );
 }

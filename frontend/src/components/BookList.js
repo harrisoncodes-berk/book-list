@@ -3,7 +3,7 @@ import { GoArrowSmallDown, GoArrowSmallUp } from "react-icons/go";
 
 import "./BookList.css";
 
-function BookList({ books, headers }) {
+function BookList({ books, headers, deleteBook }) {
   const [sortColumn, setSortColumn] = useState(null);
   const [sortOrder, setSortOrder] = useState(null);
 
@@ -23,6 +23,11 @@ function BookList({ books, headers }) {
       setSortOrder("ascending");
     }
   };
+
+  const handleDeleteBook = (id) => {
+    console.log(id);
+    deleteBook(id);
+  }
 
   let sortedBooks = books;
   if (sortOrder && sortColumn) {
@@ -58,6 +63,9 @@ function BookList({ books, headers }) {
         <td>{book.author}</td>
         <td>{book.yearRead}</td>
         <td>{book.rating}</td>
+        <td className="delete-column">
+          <button onClick={() => handleDeleteBook(book._id)} className="delete-button">Delete</button>
+        </td>
       </tr>
     );
   });

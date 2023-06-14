@@ -7,10 +7,6 @@ const MONGO_URL = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWOR
 
 const booksRoutes = require("./routes/books-routes");
 
-// TO-DO:
-// 1) add, get, update, delete - DONE
-// 2) Verify input is correct
-
 const app = express();
 
 app.use(bodyParser.json());

@@ -30,3 +30,21 @@ tbody tr:last-child td {
   flex-direction: column;
   font-style: bold;
 }
+
+.delete-button {
+  padding: 10px 15px;
+  margin-left: 20px;
+  background-color: rgb(231, 9, 9);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: rgb(231, 9, 9);
+}
+
+.delete-column {
+  text-align: center;
+}

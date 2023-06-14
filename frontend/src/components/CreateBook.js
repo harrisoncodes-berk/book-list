@@ -48,7 +48,7 @@ function CreateBook({ handleCreateBook }) {
       <input type="text" value={year} onChange={handleYearChange} />
       <label>Rating:</label>
       <input type="text" value={rating} onChange={handleRatingChange} />
-      <button>Create Book</button>
+      <button className="create-button">Create Book</button>
     </form>
   );
 }
